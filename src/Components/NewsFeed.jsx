@@ -9,7 +9,7 @@ const NewsFeed = () => {
 
 const options = {
   method: 'GET',
-  url: 'https://crypto-news34.p.rapidapi.com/news/cryptonews',
+  url: `https://crypto-news34.p.rapidapi.com/news/cryptonews`,
   headers: {
     'X-RapidAPI-Key': '6f5bf0432amsh42066096739d5b2p19c3bajsn21b4224763f6',
     'X-RapidAPI-Host': 'crypto-news34.p.rapidapi.com'

@@ -1,6 +1,6 @@
  body {
   display: flex;
-  background: linear-gradient(90deg,rgba(3, 245, 245, 0.247), rgba(216, 12, 124, 0.288)), url("./img/cryptocurrencyimage.webp");
+  background: linear-gradient(90deg,rgba(114, 4, 124, 0.247), rgba(216, 12, 124, 0.288)), url("./img/cryptocurrencyimage.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -24,6 +24,7 @@ overflow-x: hidden;
  ;
  text-align: center;
  align-items: center;
+ color: white
 
 }
 
@@ -31,13 +32,13 @@ overflow-x: hidden;
   backdrop-filter: blur(10px);
   align-items: center;
   text-align: center;
-  flex-direction: column;
+  flex-direction: row-reverse;
 }
 .app {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
-  width: 400%;
+  width: 150%;
   height: 1000px;
 
 }
@@ -59,4 +60,15 @@ background-color: purple;
 .app-wrapper {
  /* align-items:center;*/
   display: flex;
+  flex-direction: row-reverse;
+}
+
+.search_suggestion_line {
+  color: aliceblue;
+}
+
+.search_section {
+  width: 100px;
+  display: flex;
+  flex-direction: row-reverse;
 }
