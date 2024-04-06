@@ -1,17 +1,20 @@
  body {
-  display: flex;
-  background: linear-gradient(90deg,rgba(114, 4, 124, 0.247), rgba(216, 12, 124, 0.288)), url("./img/cryptocurrencyimage.webp");
+  background: linear-gradient(90deg,rgba(30, 5, 33, 0.53), rgba(112, 9, 66, 0.288)), url("./img/cryptocurrencyimage.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .home {
+
 color: aliceblue;
-align-items: center;
-text-align: center;
-display: flex;
-flex-direction: column;
-overflow-x: hidden;
+display: grid;
+min-height: 100vh;
+width: 100vw;
+justify-content: center;
+}
+.home h1{
+  text-align: center;
+  font-size: xx-large;
 }
 
 .news-feed {
@@ -30,17 +33,21 @@ overflow-x: hidden;
 
 .currency-converter {
   backdrop-filter: blur(10px);
-  align-items: center;
-  text-align: center;
-  flex-direction: row-reverse;
-}
-.app {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  width: 150%;
-  height: 1000px;
+  display: grid;
+  justify-content: center;
+  padding: 5% 10%;
 
+}
+.chart_main{
+  border-radius: 1em;
+ width: 50em;
+ height: 40vh;
+ display: grid;
+ justify-content: center;
+  background-color: rgba(255, 255, 255, 0.219);
+  margin:0% auto;
+  color: white !important;
+  backdrop-filter: blur(20px);
 }
 
 .Exchange-Rate {
@@ -60,7 +67,13 @@ background-color: purple;
 .app-wrapper {
  /* align-items:center;*/
   display: flex;
-  flex-direction: row-reverse;
+  left: 35%;
+  top: 20%;
+  color: white;
+  margin: 30px;
+  padding: 30px;
+
+
 }
 
 .search_suggestion_line {
@@ -71,4 +84,46 @@ background-color: purple;
   width: 100px;
   display: flex;
   flex-direction: row-reverse;
+}
+
+.SearchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 55%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+input{
+  background-color: inherit;
+  padding: 2% 4%;
+  width: 25em;
+  margin: 2% 0%;
+  border-radius: 20em;
+  border: 2px solid white;
+  color: white;
+  font-size: x-large;
+}
+select{
+  background-color: white;
+  height:3.5em;
+  padding: 0% 10;
+  width: 5em;
+  border-radius: 5em;
+  transform: translateX(-2em);
+}
+#convert-button{
+  padding: 2% 5%;
+  background-color: rgba(11, 173, 65, 0.931);
+  transform: translateX(-2em);
+  border-radius: 4em;
+  color: white;
+  font-size: larger;
+  transition: .3s linear;
+
+}
+#convert-button:hover{
+  background-color: rgba(15, 228, 86, 0.931);
 }

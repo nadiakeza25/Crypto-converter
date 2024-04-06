@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import { colors } from '@mui/material';
 
 const NewsFeed = () => {
 
@@ -17,7 +18,6 @@ const options = {
 };
 
 axios.request(options).then((response) => {
-    console.log(response.data)
     setArticles(response.data)
 
 }).catch((error) => {
@@ -32,7 +32,7 @@ const first7Articles = articles?.slice(0,7)
     <>
       <div className="news-feed">
 
-        <h2>NewsFeed</h2>
+        <h2>News Feed</h2>
 {first7Articles?.map((articles, _index) => (
 <div key={_index}>
     <a href={articles.url} ><p>{articles.title}</p></a>

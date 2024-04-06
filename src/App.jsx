@@ -1,26 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-import NewsFeed from './Components/NewsFeed'
-import CurencyConverter from './Components/CurencyConverter'
-import SearchBar from "./Components/SearchBar" 
+import "./App.css";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SearchBar from "./Components/SearchBar";
+import About from "./pages/About";
 
 const App = () => {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className="home">
-        <h1>Crypto Currency Converter</h1>
-      </div>
-      <div className="app">
-        <div className="app-wrapper">
-          <NewsFeed />
-          <CurencyConverter />
-          <SearchBar placeholder="Want To Learn More About Crypto"/>
-        </div>
-      </div>
-    </>
+    <Router>
+        <SearchBar placeholder="Want To Learn More About Crypto" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  </>
   );
-}
+};
 
-export default App
+export default App;
