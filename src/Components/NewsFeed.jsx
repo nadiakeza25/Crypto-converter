@@ -1,45 +1,39 @@
 import {useState, useEffect} from 'react'
-import axios from 'axios'
 import { colors } from '@mui/material';
+import {Link} from "react-router-dom"
 
 const NewsFeed = () => {
-
-    const [articles, setArticles] = useState(null)
-
-    useEffect(() => {
-
-const options = {
-  method: 'GET',
-  url: `https://crypto-news34.p.rapidapi.com/news/cryptonews`,
-  headers: {
-    'X-RapidAPI-Key': '6f5bf0432amsh42066096739d5b2p19c3bajsn21b4224763f6',
-    'X-RapidAPI-Host': 'crypto-news34.p.rapidapi.com'
-  }
-};
-
-axios.request(options).then((response) => {
-    setArticles(response.data)
-
-}).catch((error) => {
-    console.error(error)
+const [articles, setArticles] = useState([])
+useEffect(() => {
+fetch("https://saurav.tech/NewsAPI/top-headlines/category/health/in.json",{
+  method:"GET"
+}).then(res=>res.json()).then((data)=>{
+  const d=data.articles.reverse()
+  setArticles(prev=>[prev,...d])
+  localStorage.setItem("articlesData",JSON.stringify(data.articles))
 })
-    }, [])
+}, [])
 
-console.log(articles)
- 
-const first7Articles = articles?.slice(0,7)
-  return (
-    <>
-      <div className="news-feed">
-
-        <h2>News Feed</h2>
-{first7Articles?.map((articles, _index) => (
-<div key={_index}>
-    <a href={articles.url} ><p>{articles.title}</p></a>
+return (
+<>
+  <div className="news-feed">
+  <h2>News Feed</h2>
+  <div className="feed_container">
+    {
+    articles.map(({publishedAt,author,urlToImage,title})=>{
+      return (
+      <div 
+      key={publishedAt}
+      className='feed_article'
+      >
+        <img src={urlToImage} alt="" />
+        <div>
+          <Link to={`article#${publishedAt}`}>{title}</Link>
+        </div>
+      </div>)})}
     </div>
-    ))}
-      </div>
-    </>
+    </div>
+  </>
   );
 };
 
